@@ -4,8 +4,10 @@ npm init -y
 ## criar servidor 
 touch server.js
 
-## server
-no packge.json mudar "main" para server.js
+## packge.json
+mudar "main" para server.js
+
+adicionar "scripts" - "backend": nodemon server.js (para quando dar npm run backend rodar o servidor)
 
 ## instalar as dependencias
 npm install express
