@@ -51,7 +51,7 @@ app.post("/register", async(req,res)=>{
 app.post("/login", async (req,res)=>{
     const {email, senha}= req.body;
     const users = consultarUsuarios();
-    const user = user.find(user=>user.email === email);
+    const user = users.find(user=>user.email === email);
 
     if(!user){
         return res.status(400).json({message: "Usuario/senha inválidos"})
