@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "email": "mane@email.com",
+    "senha": "$2b$10$ZILRplPRi3EuLCR6IH4x9ebhRmdsoTl3..gAg27Ei9zdaKohQvWfO"
+  },
+  {
+    "id": 1758897322124,
+    "email": "bostacommijo@email.com",
+    "senha": "$2b$10$jXJC0gczqYKzfGMT5JrPqOsKNDWG7hl8DMCuxSldXpROlbPEzV3SO"
+  }
+]

@@ -41,7 +41,7 @@ app.post("/register", async(req,res)=>{
     }
     // criptografar a senha
     const hashSenha = await bcrypt.hash(senha,10) // quantidade de tentaivas (10)
-    const novoUsuario = {id:Date.now,email, senha:hashSenha};
+    const novoUsuario = {id:Date.now(),email, senha:hashSenha};
     users.push(novoUsuario);
     salvarUsuarios(users);
     res.status(200).json({message:"Usuario registrado com sucesso"})
@@ -63,6 +63,25 @@ app.post("/login", async (req,res)=>{
     const token = jwt.sign({id:user.id,email:user.email},SECRET_KEY,{expiresIn:"10m"});
     res.json({message:"Login realizado com sucesso",token})
 })
+
+// midleware que vai proteger as rotas da api e grantir que apenas usuarios com token valido possam acessar
+const autenticaToken = (req,res,next)=>{
+    const auth = req.headers["authorization"];
+    const token = auth && auth.split(' ')[1];
+    if(token == null) return res.sendStatus(401);
+
+    jwt.verify(token,SECRET_KEY,(erro, user)=>{
+        if(erro) return res.sendStatus(403)
+        req.user = user;
+        next();
+    })
+}
+
+// rota do dashboard
+app.get("/dashboard", autenticaToken, (req,res)=>{
+    res.json({message:"Acesso autorizado, Bem-vindo", user:req.user})
+})
+
 
 // executando o servidor na porta definida
 app.listen(port,()=>{
