@@ -1,0 +1,27 @@
+[
+  {
+    "id": 101,
+    "nome": "Mouse Sem Fio",
+    "valor": 79.90
+  },
+  {
+    "id": 205,
+    "nome": "Teclado Mecânico",
+    "valor": 289.99
+  },
+  {
+    "id": 312,
+    "nome": "Monitor 24''",
+    "valor": 899.00
+  },
+  {
+    "id": 418,
+    "nome": "Headset Gamer",
+    "valor": 349.50
+  },
+  {
+    "id": 527,
+    "nome": "Webcam Full HD",
+    "valor": 199.00
+  }
+]
